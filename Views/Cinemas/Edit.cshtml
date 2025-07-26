@@ -1,0 +1,47 @@
+﻿@model eTickets.V8.Models.Cinema
+
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <h1>Details Cinema</h1>
+        <form asp-controller="Cinemas" asp-action="Edit">
+            <div class="form-group text-center">
+                <img id="ProfilePicturePreview" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Logo" class="control-label">Profile Picture</label>
+                <input asp-for="Logo" class="form-control" id="ProfilePictureInput" value="@Model.Logo" />
+                <span asp-validation-for="Logo" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="control-label">Full Name</label>
+                <input asp-for="Name" class="form-control" value="@Model.Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Description" class="control-label">Biography</label>
+                <input asp-for="Description" class="form-control" value="@Model.Description" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-outline-success float-end" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        $(document).ready(function () {
+            $("#ProfilePictureInput").on("input", function () {
+                var url = $(this).val();
+                $("#ProfilePicturePreview").attr("src", url);
+            });
+        });
+    </script>
+}

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\eTickets.V8.props" />
+</Project>

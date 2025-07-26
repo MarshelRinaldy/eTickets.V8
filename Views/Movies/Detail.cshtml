@@ -1,0 +1,108 @@
+﻿@model Movie
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<style>
+    .movie-detail-container {
+        display: flex;
+        gap: 40px;
+        margin-top: 30px;
+    }
+
+    .movie-poster {
+        width: 320px;
+        height: 480px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .movie-info {
+        flex: 1;
+    }
+
+    .actor-img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #eee;
+        margin-bottom: 8px;
+    }
+
+    .actor-item {
+        display: inline-block;
+        text-align: center;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+
+    .add-cart-btn {
+        margin-top: 30px;
+    }
+
+    .back-btn {
+        float: right;
+        margin-top: 20px;
+    }
+
+    .badge {
+        font-size: 1em;
+        padding: 0.4em 0.8em;
+    }
+</style>
+
+<div class="container">
+    <h2 class="mb-4">@Model.Name</h2>
+    <div class="movie-detail-container">
+        <div>
+            <img src="@Model.ImageURL" alt="@Model.Name" class="movie-poster" />
+        </div>
+        <div class="movie-info">
+            <p>@Model.Description</p>
+            <ul class="list-unstyled mb-2">
+                <li><strong>Cinema:</strong> <a asp-controller="Cinemas" asp-action="Detail"
+                        asp-route-id="@Model.Cinema.Id">@Model.Cinema.Name</a></li>
+                <li><strong>Producer:</strong> <a asp-controller="Producers" asp-action="Detail"
+                        asp-route-id="@Model.Producer.Id">@Model.Producer.FullName</a></li>
+                <li><strong>Category:</strong> @Model.MovieCategory</li>
+                <li><strong>Start Date:</strong> @Model.StartDate.ToString("dd MMM yy")</li>
+                <li><strong>End Date:</strong> @Model.EndDate.ToString("dd MMM yy")</li>
+                <li>
+                    <strong>Status:</strong>
+                    @if (DateTime.Now >= Model.StartDate && DateTime.Now <= Model.EndDate)
+                    {
+                        <span class="badge bg-primary">AVAILABLE</span>
+                    }
+                    else if (DateTime.Now > Model.EndDate)
+                    {
+                        <span class="badge bg-danger">EXPIRED</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-warning text-dark">UPCOMING</span>
+                    }
+                </li>
+            </ul>
+            <div class="mb-3">
+                <strong>Actors:</strong>
+                <div>
+                    @foreach (var actor in Model.Actors_Movies)
+                    {
+                        <div class="actor-item">
+                            <img src="@actor.Actor.ProfilePictureURL" class="actor-img" />
+                            <br />
+                            <a asp-controller="Actors" asp-action="Detail"
+                                asp-route-id="@actor.Actor.Id">@actor.Actor.FullName</a>
+                        </div>
+                    }
+                </div>
+            </div>
+            <a class="btn btn-outline-success" asp-controller="Orders" asp-action="AddToShoppingCart" asp-route-id="@Model.Id">
+                <i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Price.ToString("c"))
+            </a>
+            <a class="btn btn-outline-secondary back-btn" asp-controller="Movies" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>

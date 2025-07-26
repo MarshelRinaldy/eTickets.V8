@@ -1,0 +1,446 @@
+@using eTickets.V8.Data.ViewModels;
+@model LoginVM;
+
+@{
+    ViewData["Title"] = "FilmPro - Enterprise Login";
+    Layout = "_LoginLayout";
+}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body,
+    html {
+        width: 100vw;
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.02"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.02"/><circle cx="50" cy="10" r="1" fill="%23ffffff" opacity="0.01"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        pointer-events: none;
+    }
+
+    .login-container {
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(229, 9, 20, 0.2);
+        border-radius: 12px;
+        padding: 4rem 3rem;
+        width: 100%;
+        max-width: 1600px;
+        min-width: 320px;
+        margin: 2rem auto;
+        box-shadow: 0 25px 50px rgba(229, 9, 20, 0.1);
+        position: relative;
+        z-index: 1;
+        /* border: 3px solid red !important; // debug only */
+    }
+
+    .logo {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+
+    .logo h1 {
+        color: #e50914;
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+        margin-bottom: 0.5rem;
+    }
+
+    .logo p {
+        color: #b3b3b3;
+        font-size: 0.95rem;
+        font-weight: 400;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+
+    .form-group label {
+        display: block;
+        color: #ffffff;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 1rem 1.25rem;
+        background: rgba(22, 22, 22, 0.8);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: #ffffff;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-color: #e50914;
+        background: rgba(22, 22, 22, 0.95);
+        box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.1);
+    }
+
+    .form-control::placeholder {
+        color: #8c8c8c;
+    }
+
+    .password-toggle {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #8c8c8c;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .password-toggle:hover {
+        color: #e50914;
+    }
+
+    .forgot-password {
+        text-align: right;
+        margin-bottom: 2rem;
+    }
+
+    .forgot-password a {
+        color: #b3b3b3;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+    }
+
+    .forgot-password a:hover {
+        color: #e50914;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 1rem;
+        background: linear-gradient(135deg, #e50914 0%, #b8070f 100%);
+        border: none;
+        border-radius: 8px;
+        color: #ffffff;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: 1.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .btn-primary:hover::before {
+        left: 100%;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(229, 9, 20, 0.3);
+    }
+
+    .btn-primary:active {
+        transform: translateY(0);
+    }
+
+    .divider {
+        text-align: center;
+        margin: 2rem 0;
+        position: relative;
+    }
+
+    .divider::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .divider span {
+        background: rgba(0, 0, 0, 0.85);
+        color: #8c8c8c;
+        padding: 0 1rem;
+        font-size: 0.9rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .btn-google {
+        width: 100%;
+        padding: 1rem;
+        background: #ffffff;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: #333333;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        text-decoration: none;
+    }
+
+    .btn-google:hover {
+        background: #f8f9fa;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+        color: #333333;
+        text-decoration: none;
+    }
+
+    .google-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-text {
+        text-align: center;
+        margin-top: 2rem;
+        color: #8c8c8c;
+        font-size: 0.85rem;
+    }
+
+    .footer-text a {
+        color: #e50914;
+        text-decoration: none;
+    }
+
+    .footer-text a:hover {
+        text-decoration: underline;
+    }
+
+    @@media (max-width: 700px) {
+        .login-container {
+            margin: 1rem;
+            padding: 2rem 1.5rem;
+            max-width: 98vw;
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+        }
+    }
+
+    .loading {
+        display: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid transparent;
+        border-top: 2px solid #ffffff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @@keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .error-message {
+        background: rgba(229, 9, 20, 0.1);
+        border: 1px solid rgba(229, 9, 20, 0.3);
+        color: #e50914;
+        padding: 0.75rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        display: none;
+    }
+
+    .validation-summary-errors {
+        background: rgba(229, 9, 20, 0.1);
+        border: 1px solid rgba(229, 9, 20, 0.3);
+        color: #e50914;
+        padding: 0.75rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .field-validation-error {
+        color: #e50914;
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+        display: block;
+    }
+
+    .btn-cancel {
+        width: 100%;
+        padding: 1rem;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        color: #b3b3b3;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .btn-cancel:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.3);
+        color: #ffffff;
+        text-decoration: none;
+        transform: translateY(-2px);
+    }
+</style>
+
+<div class="login-container">
+    <div class="logo">
+        <h1>FilmPro</h1>
+        <p>Enterprise Film Distribution Platform</p>
+    </div>
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="error-message" style="display: block;">
+            <i class="fas fa-exclamation-triangle"></i>
+            @TempData["Error"]
+        </div>
+    }
+
+    <form asp-controller="Account" asp-action="Login" method="post" id="loginForm">
+        <div asp-validation-summary="ModelOnly" class="validation-summary-errors"></div>
+
+        <div class="form-group">
+            <label asp-for="EmailAddress" class="control-label">Email Address</label>
+            <input asp-for="EmailAddress" class="form-control" placeholder="Enter your business email" />
+            <span asp-validation-for="EmailAddress" class="field-validation-error"></span>
+        </div>
+
+        <div class="form-group" style="position: relative;">
+            <label asp-for="Password" class="control-label">Password</label>
+            <input asp-for="Password" class="form-control" type="password" placeholder="Enter your password" />
+            <i class="fas fa-eye password-toggle" id="togglePassword"></i>
+            <span asp-validation-for="Password" class="field-validation-error"></span>
+        </div>
+
+        <div class="forgot-password">
+            <a href="/Account/ForgotPassword">Forgot your password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary" id="loginBtn">
+            <span class="btn-text">Sign In to Your Account</span>
+            <div class="loading" id="loginLoading"></div>
+        </button>
+    </form>
+
+    <div class="divider">
+        <span>or</span>
+    </div>
+
+    <a href="@Url.Action("ExternalLogin", "Account", new { provider = "Google", returnUrl = "/Movies/Index" })"
+        class="btn-google">
+        <svg class="google-icon" viewBox="0 0 24 24">
+            <path fill="#4285F4"
+                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+            <path fill="#34A853"
+                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+            <path fill="#FBBC05"
+                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+            <path fill="#EA4335"
+                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+        </svg>
+        Continue with Google
+    </a>
+
+    <a class="btn-cancel" asp-controller="Movies" asp-action="Index">
+        Cancel
+    </a>
+
+    <div class="footer-text">
+        Need a new account? <a asp-controller="Account" asp-action="Register">Sign Up</a>
+    </div>
+</div>
+
+<script>
+    // Password toggle functionality
+    document.getElementById('togglePassword').addEventListener('click', function () {
+        const password = document.querySelector('input[type="password"]');
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
+
+    // Form submission with loading state
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+        const loginBtn = document.getElementById('loginBtn');
+        const btnText = loginBtn.querySelector('.btn-text');
+        const loading = document.getElementById('loginLoading');
+
+        btnText.style.display = 'none';
+        loading.style.display = 'inline-block';
+        loginBtn.disabled = true;
+
+        // Hide any previous error messages
+        const errorMessages = document.querySelectorAll('.error-message, .validation-summary-errors');
+        errorMessages.forEach(msg => msg.style.display = 'none');
+    });
+
+    // Auto-hide error messages after 5 seconds
+    setTimeout(function () {
+        const errorDivs = document.querySelectorAll('.error-message, .validation-summary-errors');
+        errorDivs.forEach(div => {
+            if (div.style.display === 'block') {
+                div.style.display = 'none';
+            }
+        });
+    }, 5000);
+</script>

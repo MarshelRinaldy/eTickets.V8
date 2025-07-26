@@ -1,0 +1,85 @@
+@using eTickets.V8.Data.ViewModels
+@model eTickets.V8.Data.ViewModels.ShoppingCartVM
+
+<h2 class="text-center mt-4 mb-4">You shopping cart summary</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th><b>Selected amount</b></th>
+            <th><b>Movie</b></th>
+            <th><b>Price</b></th>
+            <th><b>Subtotal</b></th>
+            <th><b>Action</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
+        {
+            <tr>
+                <td>@item.Amount</td>
+                <td>@item.Movie.Name</td>
+                <td>$@item.Movie.Price</td>
+                <td>$@(item.Movie.Price* item.Amount)</td>
+                <td>
+                    <a asp-controller="Orders" asp-action="RemoveItemToShoppingCart" asp-route-id="@item.Movie.Id"
+                        class="text-danger" title="Remove one">Remove<i class="fa fa-shopping-cart"></i></a>
+                    <a asp-controller="Orders" asp-action="AddToShoppingCart" asp-route-id="@item.Movie.Id"
+                        class="text-success ml-2" title="Add one">Add<i class="fa fa-shopping-cart"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="d-flex justify-content-end">
+    <h4><b>Total:</b> $@Model.ShoppingCartTotal</h4>
+</div>
+
+<div class="d-flex justify-content-center mt-3">
+    @* <a asp-controller="Orders" asp-action="CompleteOrder" class="btn btn-outline-success">Order</a> *@
+    <div id="paypal-btn">
+
+    </div>
+    <a asp-controller="Movies" asp-action="Index" class="btn btn-outline-success">Add more items</a>
+</div>
+
+
+@section Scripts {
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=ASrtcFe-LRdbu772ONwAlP4iYS_r3hpxWXXcZ-WyJpns1IZLvVVv_BJFs4rpelGJ88GLKAjHLcNISZKS&currency=USD"></script>
+    <script>
+        paypal.Buttons({
+            style: {
+                size: 'small',
+                color: 'gold',
+                shape: 'rect',
+                label: 'checkout'
+            },
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '@Model.ShoppingCartTotal'
+                        }
+                    }]
+                });
+            },
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    // Kirim POST ke server untuk proses order
+                    fetch('@Url.Action("CompleteOrder", "Orders")', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    }).then(function (response) {
+                        if (response.ok) {
+                            window.location.href = '@Url.Action("OrderSuccess", "Orders")';
+                        }
+                    });
+                });
+            }
+        }).render('#paypal-btn');
+    </script>
+}

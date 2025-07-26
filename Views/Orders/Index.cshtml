@@ -1,0 +1,51 @@
+﻿@model List<eTickets.V8.Models.Order>
+
+@{
+    ViewData["Title"] = "List of all your orders";
+}
+
+<h2>List of all your orders</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Items</th>
+            <th>Total</th>
+            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <th>User</th>
+            }
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Id</td>
+                <td>
+                    @foreach (var item in order.OrderItems)
+                    {
+                        <div style="background-color: #b2dfdb; border-radius: 6px; margin-bottom: 6px; padding: 6px 12px; display: inline-block;">
+                            <span style="background-color: #388e3c; color: white; border-radius: 50%; width: 24px; height: 24px; display: inline-block; text-align: center; line-height: 24px; font-weight: bold; margin-right: 8px;">
+                                @item.Amount
+                            </span>
+                            [$@item.Price] - @item.Movie.Name
+                        </div>
+                        <br />
+                    }
+                </td>
+                <td>
+                    $@(order.OrderItems.Sum(x => x.Price * x.Amount).ToString("0.00"))
+                </td> 
+
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")){
+                <td>
+                    @order.User.FullName
+                </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

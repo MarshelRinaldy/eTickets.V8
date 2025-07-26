@@ -1,0 +1,44 @@
+@model IEnumerable<ApplicationUser>
+
+<style>
+    /* Responsive table for mobile */
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    @@media (max-width: 576px) {
+
+        .table th,
+        .table td {
+            white-space: nowrap;
+        }
+
+        .table img {
+            width: 60px !important;
+            height: 60px !important;
+        }
+    }
+</style>
+
+<h2 class="mb-4">@ViewData["Title"]</h2>
+<div class="table-responsive">
+    <table class="table table-striped align-middle">
+        <thead class="table-light">
+            <tr>
+                <th>ProfilePictureURL</th>
+                <th>FullName</th>
+                <th>Bio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.FullName</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

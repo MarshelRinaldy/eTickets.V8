@@ -1,0 +1,72 @@
+﻿@*Define Model*@
+
+@model List<eTickets.V8.Models.Producer>
+@{
+    ViewData["Title"] = "List of Producers";
+}
+
+<style>
+    /* Responsive table for mobile */
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    @@media (max-width: 576px) {
+
+        .table th,
+        .table td {
+            white-space: nowrap;
+        }
+
+        .table img {
+            width: 60px !important;
+            height: 60px !important;
+        }
+    }
+</style>
+
+<h2 class="mb-4">@ViewData["Title"]</h2>
+<div class="table-responsive">
+    <table class="table table-striped align-middle">
+        <thead class="table-light">
+            <tr>
+                <th>ProfilePictureURL</th>
+                <th>FullName</th>
+                <th>Bio</th>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <th>Action</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var producer in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@producer.ProfilePictureURL" alt="@producer.FullName" class="img-fluid rounded-circle"
+                            style="width:100px; height:100px; object-fit:cover;" />
+                    </td>
+                    <td>@producer.FullName</td>
+                    <td>@producer.Bio</td>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <td>
+                            <a class="btn btn-outline-primary btn-sm mb-1"
+                                href="@Url.Action("Edit", "Actors", new { id = producer.Id })">Edit</a>
+                            <a class="btn btn-outline-info btn-sm mb-1" asp-controller="Producers" asp-action="Detail"
+                                asp-route-id="@producer.Id">Details</a>
+                            <a class="btn btn-danger btn-sm mb-1" asp-controller="Producers" asp-action="Delete"
+                                asp-route-id="@producer.Id">Delete</a>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="text-white">
+    <a asp-controller="Producers" asp-action="Create" class="btn btn-success"> <i class="bg-info bi-plus-circle"></i>
+        Add New </a>
+</div>

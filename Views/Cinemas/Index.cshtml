@@ -1,0 +1,79 @@
+﻿@*Define Model*@
+
+@model List<eTickets.V8.Models.Cinema>
+@{
+    ViewData["Title"] = "List of Producers";
+}
+
+<style>
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    @@media (max-width: 576px) {
+
+        .table th,
+        .table td {
+            white-space: nowrap;
+        }
+
+        .table img {
+            width: 60px !important;
+            height: 60px !important;
+        }
+    }
+</style>
+
+<h2 class="mb-4">@ViewData["Title"]</h2>
+<div class="table-responsive">
+    <table class="table table-striped align-middle">
+        <thead class="table-light">
+            <tr>
+                <th>Cinema Logo</th>
+                <th>FullName</th>
+                <th>Bio</th>
+
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <th>Action</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cinema in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@cinema.Logo" alt="@cinema.Logo" class="img-fluid rounded-circle"
+                            style="width:100px; height:100px; object-fit:cover;" />
+                    </td>
+                    <td>@cinema.Name</td>
+                    <td>@cinema.Description</td>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <td>
+                            <a class="btn btn-outline-primary btn-sm mb-1" asp-controller="Cinemas" asp-action="Edit"
+                                asp-route-id="@cinema.Id">Edit</a>
+                            <a class="btn btn-outline-success btn-sm mb-1" asp-controller="Cinemas" asp-action="Detail"
+                                asp-route-id="@cinema.Id">Detail</a>
+                            <a class="btn btn-danger btn-sm mb-1" asp-controller="Cinemas" asp-action="Delete"
+                                asp-route-id="@cinema.Id">Delete</a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <a class="btn btn-outline-success btn-sm mb-1" asp-controller="Cinemas" asp-action="Detail"
+                                asp-route-id="@cinema.Id">Detail</a>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="text-white">
+    <a asp-controller="Cinemas" asp-action="Create" class="btn btn-success"> <i class="bg-info bi-plus-circle"></i> Add
+        New </a>
+</div>

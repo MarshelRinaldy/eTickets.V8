@@ -1,0 +1,62 @@
+﻿@model eTickets.V8.Models.Actor
+
+@{
+    ViewData["Title"] = "Add a New Actor";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <h1>Add a New Actor</h1>
+        <form asp-controller="Actors" asp-action="Create">
+            <div class="form-group text-center mb-3">
+                <img id="ProfilePicturePreview" class="img-fluid rounded-circle"
+                    style="width:150px; height:150px; object-fit:cover; border: 2px solid #ddd;" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ProfilePictureURL" class="control-label">Profile Picture URL</label>
+                <input asp-for="ProfilePictureURL" class="form-control" id="ProfilePictureInput"
+                    placeholder="https://example.com/image.jpg" />
+                <small class="form-text text-muted">Enter a valid image URL (e.g.,
+                    https://via.placeholder.com/300x300)</small>
+                <span asp-validation-for="ProfilePictureURL" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="FullName" class="control-label">Full Name</label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Bio" class="control-label">Biography</label>
+                <textarea asp-for="Bio" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Bio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a asp-controller="Actors" asp-action="Index" class="btn btn-outline-secondary">Show All</a>
+                <input type="submit" value="Create" class="btn btn-outline-success float-end" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        $(document).ready(function () {
+            $("#ProfilePictureInput").on("input", function () {
+                var url = $(this).val();
+                if (url) {
+                    $("#ProfilePicturePreview").attr("src", url);
+                } else {
+                    $("#ProfilePicturePreview").attr("src", "/images/default-avatar.png");
+                }
+            });
+
+            // Set default image on page load
+            $("#ProfilePicturePreview").attr("src", "/images/default-avatar.png");
+        });
+    </script>
+}

@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Registration Completed";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-header">
+                <h3>Registration Completed</h3>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Account Created Successfully!</h4>
+                    <p>Your account has been created successfully. You can now login with your email and password.</p>
+                    <hr>
+                    <p class="mb-0">
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-primary">
+                            <i class="fas fa-sign-in-alt me-2"></i>Go to Login
+                        </a>
+                        <a asp-controller="Movies" asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="fas fa-home me-2"></i>Back to Home
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
