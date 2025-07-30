@@ -1,30 +1,36 @@
-﻿@model eTickets.V8.Models.Actor
+﻿@model eTickets.V8.Data.ViewModels.ActorEditVM
 
 @{
-    ViewData["Title"] = "Detail Actor";
+    ViewData["Title"] = "Edit Actor";
 }
 
 <div class="row">
     <div class="col-md-8 offset-2">
-        <h1>Details Actor</h1>
-        <form asp-controller="Actors" asp-action="Edit">
-            <div class="form-group text-center">
-                <img id="ProfilePicturePreview" />
+        <h1>Edit Actor</h1>
+        <form asp-controller="Actors" asp-action="Edit" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CurrentProfilePictureURL" />
+
+            <div class="form-group text-center mb-3">
+                <img id="ProfilePicturePreview" src="@Model.CurrentProfilePictureURL"
+                    style="max-width: 200px; max-height: 200px;" />
             </div>
 
             <div class="form-group mb-3">
-                <label asp-for="ProfilePictureURL" class="control-label">Profile Picture</label>
-                <input asp-for="ProfilePictureURL" class="form-control" id="ProfilePictureInput" value="@Model.ProfilePictureURL" />
-                <span asp-validation-for="ProfilePictureURL" class="text-danger"></span>
+                <label asp-for="NewProfilePictureURL" class="control-label">New Profile Picture (Optional)</label>
+                <input asp-for="NewProfilePictureURL" class="form-control" type="file" id="ProfilePictureInput"
+                    accept="image/*" />
+                <span asp-validation-for="NewProfilePictureURL" class="text-danger"></span>
+                <small class="form-text text-muted">Leave empty to keep the current image</small>
             </div>
             <div class="form-group mb-3">
                 <label asp-for="FullName" class="control-label">Full Name</label>
-                <input asp-for="FullName" class="form-control" value="@Model.FullName" />
+                <input asp-for="FullName" class="form-control" />
                 <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
             <div class="form-group mb-3">
                 <label asp-for="Bio" class="control-label">Biography</label>
-                <input asp-for="Bio" class="form-control" value="@Model.Bio" />
+                <textarea asp-for="Bio" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="Bio" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -41,9 +47,15 @@
 
     <script>
         $(document).ready(function () {
-            $("#ProfilePictureInput").on("input", function () {
-                var url = $(this).val();
-                $("#ProfilePicturePreview").attr("src", url);
+            $("#ProfilePictureInput").on("change", function () {
+                var file = this.files[0];
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("#ProfilePicturePreview").attr("src", e.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
             });
         });
     </script>

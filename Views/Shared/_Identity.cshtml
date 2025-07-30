@@ -10,7 +10,8 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
             @{
-                var displayName = userManager.GetUserName(User) ?? User.Identity.Name ?? "Guest";
+                var currentUser = await userManager.GetUserAsync(User);
+                var displayName = currentUser?.FullName ?? currentUser?.UserName ?? "Guest";
             }
             <li>
                 <span class="dropdown-item-text">Hello @displayName</span>

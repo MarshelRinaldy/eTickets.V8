@@ -1,16 +1,16 @@
-﻿@model eTickets.V8.Models.Cinema
+﻿@model eTickets.V8.Data.ViewModels.CinemaVM
 
 <div class="row">
     <div class="col-md-8 offset-2">
-        <h1>Add a New Actor</h1>
-        <form asp-controller="Cinemas" asp-action="Create">
+        <h1>Add a New Cinema</h1>
+        <form asp-controller="Cinemas" asp-action="Create" method="post" enctype="multipart/form-data">
             <div class="form-group text-center">
                 <img id="ProfilePicturePreview" />
             </div>
 
             <div class="form-group mb-3">
                 <label asp-for="Logo" class="control-label">Profile Picture</label>
-                <input asp-for="Logo" class="form-control" id="ProfilePictureInput" />
+                <input asp-for="Logo" class="form-control" id="ProfilePictureInput" type="file" accept="image/*" />
                 <span asp-validation-for="Logo" class="text-danger"></span>
             </div>
             <div class="form-group mb-3">
@@ -38,9 +38,15 @@
 
     <script>
         $(document).ready(function () {
-            $("#ProfilePictureInput").on("input", function () {
-                var url = $(this).val();
-                $("#ProfilePicturePreview").attr("src", url);
+            $("#ProfilePictureInput").on("change", function () {
+                var file = this.files[0];
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("#ProfilePicturePreview").attr("src", e.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
             });
         });
     </script>

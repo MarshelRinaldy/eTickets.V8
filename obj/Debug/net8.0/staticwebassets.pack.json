@@ -13,6 +13,22 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Course ASP NET MVC\\eTickets.V8\\eTickets.V8\\wwwroot\\images\\actors\\20250727180551298.jpg",
+      "PackagePath": "staticwebassets\\images\\actors\\20250727180551298.jpg"
+    },
+    {
+      "Id": "D:\\Course ASP NET MVC\\eTickets.V8\\eTickets.V8\\wwwroot\\images\\cinemas\\20250729143455619.jpg",
+      "PackagePath": "staticwebassets\\images\\cinemas\\20250729143455619.jpg"
+    },
+    {
+      "Id": "D:\\Course ASP NET MVC\\eTickets.V8\\eTickets.V8\\wwwroot\\images\\cinemas\\20250730093240209.jpg",
+      "PackagePath": "staticwebassets\\images\\cinemas\\20250730093240209.jpg"
+    },
+    {
+      "Id": "D:\\Course ASP NET MVC\\eTickets.V8\\eTickets.V8\\wwwroot\\images\\default-avatar.png",
+      "PackagePath": "staticwebassets\\images\\default-avatar.png"
+    },
+    {
       "Id": "D:\\Course ASP NET MVC\\eTickets.V8\\eTickets.V8\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

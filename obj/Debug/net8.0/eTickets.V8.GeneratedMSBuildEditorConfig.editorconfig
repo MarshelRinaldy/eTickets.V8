@@ -17,167 +17,167 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = eTickets.V8
 build_property.RootNamespace = eTickets.V8
-build_property.ProjectDir = D:\Course ASP NET MVC\eTickets.V8\eTickets.V8\
+build_property.ProjectDir = d:\Course ASP NET MVC\eTickets.V8\eTickets.V8\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Course ASP NET MVC\eTickets.V8\eTickets.V8
+build_property.MSBuildProjectDirectory = d:\Course ASP NET MVC\eTickets.V8\eTickets.V8
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Account/GoogleResponse.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Account/GoogleResponse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxHb29nbGVSZXNwb25zZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Account/Login.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Account/Register.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Account/RegisterCompleted.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Account/RegisterCompleted.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RlckNvbXBsZXRlZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Account/Users.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Account/Users.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Actors/Create.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Actors/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Actors/Delete.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Actors/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Actors/Detail.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Actors/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JzXERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Actors/Edit.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Actors/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Actors/Index.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Actors/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Cinemas/Create.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Cinemas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2luZW1hc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Cinemas/Delete.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Cinemas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2luZW1hc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Cinemas/Detail.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Cinemas/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2luZW1hc1xEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Cinemas/Edit.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Cinemas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2luZW1hc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Cinemas/Index.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Cinemas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2luZW1hc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Home/Index.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Home/Privacy.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Movies/Create.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Movies/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Movies/Detail.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Movies/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Movies/Edit.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Movies/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Movies/Index.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Movies/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Orders/CompleteOrder.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Orders/CompleteOrder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXENvbXBsZXRlT3JkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Orders/Index.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Orders/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Orders/ShoppingCart.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Orders/ShoppingCart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXFNob3BwaW5nQ2FydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Producers/Create.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Producers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Producers/Delete.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Producers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Producers/Detail.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Producers/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJzXERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Producers/Edit.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Producers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Producers/Index.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Producers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/Components/ShoppingCartSummary/Default.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/Components/ShoppingCartSummary/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2hvcHBpbmdDYXJ0U3VtbWFyeVxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/Error.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/NotFound.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/NotFound.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5vdEZvdW5kLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/_CreateItem.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/_CreateItem.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DcmVhdGVJdGVtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/_Identity.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/_Identity.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9JZGVudGl0eS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/_LoginLayout.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/_LoginLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/_ValidationScriptsPartial.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/_ViewImports.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/_ViewStart.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/_Layout.cshtml]
+[d:/Course ASP NET MVC/eTickets.V8/eTickets.V8/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-fovxzkr3ns

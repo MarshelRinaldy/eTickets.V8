@@ -169,3 +169,4 @@ D:\Course ASP NET MVC\eTickets.V8\eTickets.V8\bin\Debug\net8.0\zh-Hant\Microsoft
 D:\Course ASP NET MVC\eTickets.V8\eTickets.V8\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\Course ASP NET MVC\eTickets.V8\eTickets.V8\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\Course ASP NET MVC\eTickets.V8\eTickets.V8\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll
+D:\Course ASP NET MVC\eTickets.V8\eTickets.V8\obj\Debug\net8.0\eTickets.V8.sourcelink.json

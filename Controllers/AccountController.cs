@@ -51,8 +51,9 @@ namespace eTickets.V8.Controllers
                 RedirectUri = Url.Action("GoogleResponse"),
                 Items =
                 {
-                    { ".xsrf", Guid.NewGuid().ToString() }
+                    { ".xsrf", Guid.NewGuid().ToString() }                    
                 }
+
             };
 
             await HttpContext.ChallengeAsync(GoogleDefaults.AuthenticationScheme, properties);
@@ -362,6 +363,8 @@ namespace eTickets.V8.Controllers
             }
         }
 
+
+        //Method yang dijalankan ketika logun with google
         [AllowAnonymous]
         public IActionResult ExternalLogin(string provider, string returnUrl = null)
         {

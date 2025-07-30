@@ -1,4 +1,4 @@
-﻿@model eTickets.V8.Models.Actor
+﻿@model eTickets.V8.Data.ViewModels.ActorVM
 
 @{
     ViewData["Title"] = "Add a New Actor";
@@ -7,18 +7,17 @@
 <div class="row">
     <div class="col-md-8 offset-2">
         <h1>Add a New Actor</h1>
-        <form asp-controller="Actors" asp-action="Create">
+        <form asp-controller="Actors" asp-action="Create" enctype="multipart/form-data">
             <div class="form-group text-center mb-3">
                 <img id="ProfilePicturePreview" class="img-fluid rounded-circle"
                     style="width:150px; height:150px; object-fit:cover; border: 2px solid #ddd;" />
             </div>
 
             <div class="form-group mb-3">
-                <label asp-for="ProfilePictureURL" class="control-label">Profile Picture URL</label>
-                <input asp-for="ProfilePictureURL" class="form-control" id="ProfilePictureInput"
-                    placeholder="https://example.com/image.jpg" />
-                <small class="form-text text-muted">Enter a valid image URL (e.g.,
-                    https://via.placeholder.com/300x300)</small>
+                <label asp-for="ProfilePictureURL" class="control-label">Profile Picture</label>
+                <input asp-for="ProfilePictureURL" class="form-control" type="file" id="ProfilePictureInput"
+                    accept="image/*" />
+                <small class="form-text text-muted">Upload an image file (jpg, jpeg, png, gif)</small>
                 <span asp-validation-for="ProfilePictureURL" class="text-danger"></span>
             </div>
             <div class="form-group mb-3">
@@ -46,10 +45,14 @@
 
     <script>
         $(document).ready(function () {
-            $("#ProfilePictureInput").on("input", function () {
-                var url = $(this).val();
-                if (url) {
-                    $("#ProfilePicturePreview").attr("src", url);
+            $("#ProfilePictureInput").on("change", function () {
+                var file = this.files[0];
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("#ProfilePicturePreview").attr("src", e.target.result);
+                    };
+                    reader.readAsDataURL(file);
                 } else {
                     $("#ProfilePicturePreview").attr("src", "/images/default-avatar.png");
                 }
